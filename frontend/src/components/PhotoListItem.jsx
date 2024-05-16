@@ -1,11 +1,10 @@
 import React from "react";
-
+import PhotoFavButton from './PhotoFavButton';
 import "../styles/PhotoListItem.scss";
-
 
 const PhotoListItem = ({ photo }) => {
   const { username, imageSource, id, location, profile } = photo;
-  
+
   return (
     <div className="photo-list__item">
       <img 
@@ -24,11 +23,10 @@ const PhotoListItem = ({ photo }) => {
           <p className="photo-list__user-location">{`${location.city}, ${location.country}`}</p>
         </div>
       </div>
+      <PhotoFavButton />
     </div>
   );
 };
 
-
 export default PhotoListItem;
-
 
