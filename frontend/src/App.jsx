@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
-import TopNavigationBar from './components/TopNavigationBar';
-import PhotoList from './components/PhotoList';
+import HomeRoute from './components/HomeRoute';
 import './App.scss';
 
-const App = () => {
-  // Example state to track if there are favorite photos
-  const [isFavPhotoExist, setIsFavPhotoExist] = useState(false);
-
+function App() {
   return (
     <div className="App">
-      <TopNavigationBar isFavPhotoExist={isFavPhotoExist} />
-      <PhotoList />
+      <HomeRoute />
     </div>
   );
-};
+}
 
 export default App;
 
