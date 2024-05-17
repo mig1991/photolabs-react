@@ -7,8 +7,9 @@ function PhotoFavButton() {
   const [isLiked, setIsLiked] = useState(false);
 
   const toggleLike = () => {
-    setIsLiked(!isLiked);
+    setIsLiked(prevIsLiked => !prevIsLiked); // Using a function to reference the previous state
   };
+  
 
   return (
     <div className="photo-list__fav-icon" onClick={toggleLike}>
