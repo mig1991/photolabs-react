@@ -5,3 +5,11 @@
   align-items: center;
   margin-right: 24px;
 }
+
+.topic-list {
+  display: flex; /* This ensures the items will be in a row */
+  flex-direction: row; /* Explicitly set direction to row */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
