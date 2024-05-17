@@ -9,9 +9,5 @@ const TopicListItem = ({ label }) => {
   );
 };
 
-// Use `.defaultProps` when building components in isolation
-TopicListItem.defaultProps = {
-  label: 'Nature'
-};
 
 export default TopicListItem;

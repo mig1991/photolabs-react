@@ -8,7 +8,8 @@
 
 .topic-list {
   display: flex; /* This ensures the items will be in a row */
-  flex-direction: row; /* Explicitly set direction to row */
+  flex-direction: row;
+  justify-content: center; /* Explicitly set direction to row */
   list-style: none;
   padding: 0;
   margin: 0;
