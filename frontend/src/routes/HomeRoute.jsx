@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
-import '../styles/HomeRoute.scss';
-import PhotoDetailsModal from './PhotoDetailsModal';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import { FavouritesProvider } from '../context/FavouritesContext';
+import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics, openModal, closeModal, displayModal }) => {
+const HomeRoute = ({ photos, topics, openModal, closeModal, displayModal, selectedPhoto }) => {
   return (
     <FavouritesProvider>
       <div className="home-route">
         <TopNavigationBar topics={topics} />
         <PhotoList photos={photos} onPhotoClick={openModal} />
-        {displayModal && <PhotoDetailsModal onClose={closeModal} />}
+        {displayModal && <PhotoDetailsModal onClose={closeModal} photo={selectedPhoto} />}
       </div>
     </FavouritesProvider>
   );

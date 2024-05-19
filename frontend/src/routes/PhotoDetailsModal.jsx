@@ -1,9 +1,10 @@
 import React from 'react';
-import '../styles/PhotoDetailsModal.scss'
+import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
+const PhotoDetailsModal = ({ onClose, photo }) => {
+  console.log('Selected photo details:', photo); // Log the selected photo details
 
-const PhotoDetailsModal = ({ onClose }) => {
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={onClose}>
@@ -12,4 +13,5 @@ const PhotoDetailsModal = ({ onClose }) => {
     </div>
   );
 };
+
 export default PhotoDetailsModal;

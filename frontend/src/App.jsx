@@ -6,9 +6,17 @@ import './App.scss';
 
 function App() {
   const [displayModal, setDisplayModal] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const openModal = () => setDisplayModal(true);
-  const closeModal = () => setDisplayModal(false);
+  const openModal = (photo) => {
+    setSelectedPhoto(photo);
+    setDisplayModal(true);
+  };
+
+  const closeModal = () => {
+    setSelectedPhoto(null);
+    setDisplayModal(false);
+  };
 
   return (
     <div className="App">
@@ -18,9 +26,9 @@ function App() {
         openModal={openModal}
         closeModal={closeModal}
         displayModal={displayModal}
+        selectedPhoto={selectedPhoto}
       />
     </div>
   );
 }
-
 export default App;

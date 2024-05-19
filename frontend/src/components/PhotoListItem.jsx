@@ -4,8 +4,13 @@ import '../styles/PhotoListItem.scss';
 
 const PhotoListItem = ({ photo, onClick }) => {
   const { user, urls, location } = photo;
+
+  const handleClick = () => {
+    onClick(photo);
+  };
+
   return (
-    <div className="photo-list__item" onClick={onClick}>
+    <div className="photo-list__item" onClick={handleClick}>
       <img
         className="photo-list__image"
         src={urls.regular}
