@@ -3,6 +3,7 @@
 import React, { useContext } from 'react';
 import { FavouritesContext } from '../context/FavouritesContext';
 import TopicList from './TopicList';
+import FavIcon from './FavIcon';
 import '../styles/TopNavigationBar.scss';
 
 const TopNavigationBar = ({ topics }) => {
@@ -15,7 +16,7 @@ const TopNavigationBar = ({ topics }) => {
       <div className="favourites-notification">
         {favourites.length > 0 && (
           <span className="favourites-count">
-            {favourites.length} Favourited Photo{favourites.length > 1 ? 's' : ''}
+            <FavIcon isLiked={true} /> {favourites.length} Favourited Photo{favourites.length > 1 ? 's' : ''}
           </span>
         )}
       </div>
