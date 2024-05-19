@@ -3,9 +3,11 @@ import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = ({ onClose, photo }) => {
-  console.log('Selected photo details:', photo); // Log the selected photo details
+  console.log('Props received in PhotoDetailsModal:', { photo });
 
-  if (!photo) return null; // Ensure the component only renders when a photo is provided
+  if (!photo) return null;
+
+  console.log('Similar photos:', photo.similar_photos);
 
   return (
     <div className="photo-details-modal">
@@ -29,9 +31,8 @@ const PhotoDetailsModal = ({ onClose, photo }) => {
           </div>
         </div>
         <h2 className="photo-details-modal__similar-header">Similar Photos</h2>
-        {/* Placeholder for similar photos */}
         <div className="photo-details-modal__additional-content">
-          {/* Additional content goes here */}
+          {/* Placeholder for similar photos */}
         </div>
       </div>
     </div>
