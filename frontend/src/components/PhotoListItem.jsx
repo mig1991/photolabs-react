@@ -1,13 +1,11 @@
-// src/components/PhotoListItem.jsx
-
 import React from 'react';
 import PhotoFavButton from './PhotoFavButton';
 import '../styles/PhotoListItem.scss';
 
-const PhotoListItem = ({ photo }) => {
+const PhotoListItem = ({ photo, onClick }) => {
   const { user, urls, location } = photo;
   return (
-    <div className="photo-list__item">
+    <div className="photo-list__item" onClick={onClick}>
       <img
         className="photo-list__image"
         src={urls.regular}
@@ -24,7 +22,7 @@ const PhotoListItem = ({ photo }) => {
           <p className="photo-list__user-location">{`${location.city}, ${location.country}`}</p>
         </div>
       </div>
-      <PhotoFavButton photo={photo} /> {/* Pass the photo prop here */}
+      <PhotoFavButton photo={photo} />
     </div>
   );
 };
