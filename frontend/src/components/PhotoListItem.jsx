@@ -2,7 +2,7 @@ import React from 'react';
 import PhotoFavButton from './PhotoFavButton';
 import '../styles/PhotoListItem.scss';
 
-const PhotoListItem = ({ photo, onClick }) => {
+const PhotoListItem = ({ photo, onClick, favourites, toggleFavourite }) => {
   const { user, urls, location } = photo;
 
   const handleClick = () => {
@@ -16,6 +16,11 @@ const PhotoListItem = ({ photo, onClick }) => {
         src={urls.regular}
         alt={`Photo ${photo.id}`}
       />
+      <PhotoFavButton
+        photo={photo}
+        favourites={favourites}
+        toggleFavourite={toggleFavourite}
+      />
       <div className="photo-list__user-details">
         <img
           className="photo-list__user-profile"
@@ -27,7 +32,6 @@ const PhotoListItem = ({ photo, onClick }) => {
           <p className="photo-list__user-location">{`${location.city}, ${location.country}`}</p>
         </div>
       </div>
-      <PhotoFavButton photo={photo} />
     </div>
   );
 };

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { FavouritesProvider } from './context/FavouritesContext';
-import HomeRoute from 'routes/HomeRoute';
+import HomeRoute from './routes/HomeRoute';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
 import './App.scss';
-import PhotoDetailsModal from 'routes/PhotoDetailsModal'; // Import PhotoDetailsModal
 
 function App() {
   const [displayModal, setDisplayModal] = useState(false);
@@ -32,12 +31,6 @@ function App() {
           displayModal={displayModal}
           selectedPhoto={selectedPhoto}
         />
-        {displayModal && (
-          <PhotoDetailsModal
-            onClose={closeModal}
-            photo={selectedPhoto}
-          />
-        )}
       </div>
     </FavouritesProvider>
   );

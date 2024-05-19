@@ -4,7 +4,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
-const PhotoDetailsModal = ({ onClose, photo }) => {
+const PhotoDetailsModal = ({ onClose, photo, favourites, toggleFavourite }) => {
   console.log('Props received in PhotoDetailsModal:', { photo });
 
   if (!photo) return null;
@@ -24,7 +24,10 @@ const PhotoDetailsModal = ({ onClose, photo }) => {
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="photo-details-modal__content">
-        <img src={photo.urls.regular} alt={photo.title} className="photo-details-modal__image" />
+        <div className="photo-details-modal__image-container">
+          <PhotoFavButton photo={photo} favourites={favourites} toggleFavourite={toggleFavourite} />
+          <img src={photo.urls.regular} alt={photo.title} className="photo-details-modal__image" />
+        </div>
         <div className="photo-details-modal__header">
           {photo.title}
         </div>
@@ -39,11 +42,10 @@ const PhotoDetailsModal = ({ onClose, photo }) => {
             <p className="photo-list__user-location">{`${photo.location.city}, ${photo.location.country}`}</p>
           </div>
         </div>
-        <PhotoFavButton photo={photo} />
         <h2 className="photo-details-modal__similar-header">Similar Photos</h2>
         <div className="photo-details-modal__additional-content">
           {similarPhotos.length > 0 ? (
-            <PhotoList photos={similarPhotos} onPhotoClick={handlePhotoClick} />
+            <PhotoList photos={similarPhotos} onPhotoClick={handlePhotoClick} favourites={favourites} toggleFavourite={toggleFavourite} />
           ) : (
             <p>No similar photos available</p>
           )}

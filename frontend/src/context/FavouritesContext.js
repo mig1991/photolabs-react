@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 // Create the context - can be accessed by children without needing to manually pass down props
 const FavouritesContext = createContext();
@@ -17,11 +17,26 @@ const FavouritesProvider = ({ children }) => {
     setFavourites((prevFavourites) => prevFavourites.filter(photo => photo.id !== photoId));
   };
 
+  // Function to toggle a photo in favourites
+  const toggleFavourite = (photo) => {
+    const isFavourited = favourites.some(fav => fav.id === photo.id);
+    if (isFavourited) {
+      removeFavourite(photo.id);
+    } else {
+      addFavourite(photo);
+    }
+  };
+
   return (
-    <FavouritesContext.Provider value={{ favourites, addFavourite, removeFavourite }}>
+    <FavouritesContext.Provider value={{ favourites, addFavourite, removeFavourite, toggleFavourite }}>
       {children}
     </FavouritesContext.Provider>
   );
 };
 
-export { FavouritesContext, FavouritesProvider };
+// Define and export the useFavourites hook
+const useFavourites = () => {
+  return useContext(FavouritesContext);
+};
+
+export { FavouritesContext, FavouritesProvider, useFavourites };
