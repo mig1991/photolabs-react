@@ -29,9 +29,17 @@
   margin-top: 8px;
 }
 
+.photo-details-modal__content {
+  padding: 10px 40px; /* Increase left and right padding */
+}
+
 .photo-details-modal__image {
-  max-width: 95%;
+  width: 100%;
+  height: auto;
+  max-height: 50vh;
   border-radius: 8px;
+  object-fit: contain;
+  margin-bottom: 16px; /* Add some space below the image for additional content */
 }
 
 .photo-details-modal__top-bar {
