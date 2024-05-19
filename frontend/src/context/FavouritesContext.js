@@ -1,20 +1,18 @@
-// src/context/FavouritesContext.js
-
 import React, { createContext, useState } from 'react';
 
-// create the context - can be accessed by children without needing to manually pass down props
+// Create the context - can be accessed by children without needing to manually pass down props
 const FavouritesContext = createContext();
 
-// create the provider component
+// Create the provider component
 const FavouritesProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
 
-  // function to add a photo to favourites
+  // Function to add a photo to favourites
   const addFavourite = (photo) => {
     setFavourites((prevFavourites) => [...prevFavourites, photo]);
   };
 
-  // function to remove a photo from favourites
+  // Function to remove a photo from favourites
   const removeFavourite = (photoId) => {
     setFavourites((prevFavourites) => prevFavourites.filter(photo => photo.id !== photoId));
   };

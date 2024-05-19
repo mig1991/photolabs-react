@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
-import PhotoList from 'components/PhotoList';
+import PhotoList from '../components/PhotoList';
+import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoDetailsModal = ({ onClose, photo }) => {
   console.log('Props received in PhotoDetailsModal:', { photo });
@@ -9,6 +10,11 @@ const PhotoDetailsModal = ({ onClose, photo }) => {
   if (!photo) return null;
 
   const similarPhotos = Object.values(photo.similar_photos || {});
+
+  const handlePhotoClick = (photo) => {
+    console.log('Clicked photo:', photo);
+    // Implement functionality to handle photo click, e.g., updating the modal with the new photo
+  };
 
   console.log('Similar photos array:', similarPhotos);
 
@@ -33,9 +39,14 @@ const PhotoDetailsModal = ({ onClose, photo }) => {
             <p className="photo-list__user-location">{`${photo.location.city}, ${photo.location.country}`}</p>
           </div>
         </div>
+        <PhotoFavButton photo={photo} />
         <h2 className="photo-details-modal__similar-header">Similar Photos</h2>
         <div className="photo-details-modal__additional-content">
-          <PhotoList photos={similarPhotos} onPhotoClick={() => {}} />
+          {similarPhotos.length > 0 ? (
+            <PhotoList photos={similarPhotos} onPhotoClick={handlePhotoClick} />
+          ) : (
+            <p>No similar photos available</p>
+          )}
         </div>
       </div>
     </div>

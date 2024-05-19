@@ -1,5 +1,4 @@
-// src/components/PhotoFavButton.jsx
-import React, { useCallback, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import FavIcon from './FavIcon';
 import { FavouritesContext } from '../context/FavouritesContext';
 import '../styles/PhotoFavButton.scss';
@@ -28,4 +27,3 @@ function PhotoFavButton({ photo }) {
 }
 
 export default PhotoFavButton;
-
