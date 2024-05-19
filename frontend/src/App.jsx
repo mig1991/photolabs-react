@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FavouritesProvider } from './context/FavouritesContext';
 import HomeRoute from 'routes/HomeRoute';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
@@ -21,22 +22,24 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <HomeRoute
-        photos={photos}
-        topics={topics}
-        openModal={openModal}
-        closeModal={closeModal}
-        displayModal={displayModal}
-        selectedPhoto={selectedPhoto}
-      />
-      {displayModal && (
-        <PhotoDetailsModal
-          onClose={closeModal}
-          photo={selectedPhoto}
+    <FavouritesProvider>
+      <div className="App">
+        <HomeRoute
+          photos={photos}
+          topics={topics}
+          openModal={openModal}
+          closeModal={closeModal}
+          displayModal={displayModal}
+          selectedPhoto={selectedPhoto}
         />
-      )}
-    </div>
+        {displayModal && (
+          <PhotoDetailsModal
+            onClose={closeModal}
+            photo={selectedPhoto}
+          />
+        )}
+      </div>
+    </FavouritesProvider>
   );
 }
 

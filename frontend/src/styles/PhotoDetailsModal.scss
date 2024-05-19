@@ -91,3 +91,10 @@
   margin-top: 24px;
   margin-bottom: 24px;
 }
+
+.photo-details-modal__additional-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}

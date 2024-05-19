@@ -6,7 +6,7 @@ const PhotoList = ({ photos, onPhotoClick }) => {
   return (
     <div className="photo-list">
       {photos.map((photo) => (
-        <PhotoListItem key={photo.id} photo={photo} onClick={() => onPhotoClick(photo)} />
+        <PhotoListItem key={photo.id} photo={photo} onClick={onPhotoClick} />
       ))}
     </div>
   );

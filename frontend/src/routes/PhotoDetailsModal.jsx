@@ -1,13 +1,16 @@
 import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
+import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = ({ onClose, photo }) => {
   console.log('Props received in PhotoDetailsModal:', { photo });
 
   if (!photo) return null;
 
-  console.log('Similar photos:', photo.similar_photos);
+  const similarPhotos = Object.values(photo.similar_photos || {});
+
+  console.log('Similar photos array:', similarPhotos);
 
   return (
     <div className="photo-details-modal">
@@ -32,7 +35,7 @@ const PhotoDetailsModal = ({ onClose, photo }) => {
         </div>
         <h2 className="photo-details-modal__similar-header">Similar Photos</h2>
         <div className="photo-details-modal__additional-content">
-          {/* Placeholder for similar photos */}
+          <PhotoList photos={similarPhotos} onPhotoClick={() => {}} />
         </div>
       </div>
     </div>
