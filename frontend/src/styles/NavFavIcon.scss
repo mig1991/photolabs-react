@@ -1,0 +1,24 @@
+.nav-fav-icon {
+  position: relative; // Ensure the icon is positioned relative to its container
+  display: inline-block;
+}
+
+.nav-notification-dot {
+  position: absolute;
+  top: -4px; // Adjust as needed for spacing
+  right: -4px; // Adjust as needed for spacing
+  width: 8px;
+  height: 8px;
+  background-color: green;
+  border-radius: 50%;
+  border: 2px solid white; // Optional: to add a border for better visibility
+}
+
+.fav-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.fav-icon.liked {
+  fill: red;
+}

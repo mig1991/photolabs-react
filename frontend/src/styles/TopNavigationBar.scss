@@ -18,3 +18,13 @@
   text-underline-position: auto;
   margin-left: 24px;
 }
+.nav-topics {
+  display: flex;
+  gap: 16px;
+  margin-right: auto; /* Add this to push the topics to the right */
+}
+
+.favourites-notification {
+  display: flex;
+  align-items: center;
+}
