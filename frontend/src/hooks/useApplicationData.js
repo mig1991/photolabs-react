@@ -68,12 +68,24 @@ function useApplicationData() {
         return response.json();
       })
       .then((data) => {
-        console.log("Fetched data:", data);
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { photos: data } });
-        console.log("State after dispatch:", state);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching photos:", error);
+      });
+
+    fetch("/api/topics")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error, status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: { topics: data } });
+      })
+      .catch((error) => {
+        console.error("Error fetching topics:", error);
       });
   }, []);
 
