@@ -29,18 +29,22 @@
   border-radius: 100%;
   vertical-align: middle;
   margin-right: 8px;
-  width: 40px;
-  height: 40px;
+  width: 75px; /* Increase the size of the user profile picture */
+  height: 75px; /* Increase the size of the user profile picture */
 }
-
 .photo-list__user-details {
   display: flex;
+  justify-content: center; /* Center the user details */
+  align-items: center;
+  width: 100%;
+  margin-top: 8px; /* Reduce the space between the photo and user details */
+  font-size: 2 em; /* Increase the font size for user details */
 }
 
 .photo-list__user-info {
-  margin-top: 5px;
+  margin-top: -15px;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 20px;
   margin-left: 8px;
 }
 
