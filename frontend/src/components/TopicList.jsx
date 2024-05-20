@@ -2,16 +2,16 @@ import React from 'react';
 import TopicListItem from './TopicListItem';
 import '../styles/TopicList.scss';
 
-
-const TopicList = ({ topics }) => {
+const TopicList = ({ topics, fetchPhotosByTopic }) => {
   return (
     <ul className="topic-list">
       {topics.map((topic) => (
-        <TopicListItem key={topic.id} label={topic.title} />
+        <li key={topic.id} onClick={() => fetchPhotosByTopic(topic.id)}>
+          <TopicListItem label={topic.title} />
+        </li>
       ))}
     </ul>
   );
 };
-
 
 export default TopicList;

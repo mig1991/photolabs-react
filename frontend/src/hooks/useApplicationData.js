@@ -89,7 +89,21 @@ function useApplicationData() {
       });
   }, []);
 
-
+  const fetchPhotosByTopic = (topicId) => {
+    fetch(`/api/topics/photos/${topicId}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error, status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { photos: data } });
+      })
+      .catch((error) => {
+        console.error(`Error fetching photos for topic ${topicId}:`, error);
+      });
+  };
 
 
 
@@ -111,6 +125,7 @@ function useApplicationData() {
 
   return {
     state,
+    fetchPhotosByTopic,
     updateToFavPhotoIds,
     removeFavPhotoIds,
     selectPhoto,

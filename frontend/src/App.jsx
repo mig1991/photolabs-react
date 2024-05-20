@@ -13,6 +13,7 @@ function App() {
     removeFavPhotoIds,
     selectPhoto,
     closePhotoDetailsModal,
+    fetchPhotosByTopic,
   } = useApplicationData();
 
 
@@ -28,6 +29,7 @@ function App() {
           selectedPhoto={state.selectedPhoto}
           updateToFavPhotoIds={updateToFavPhotoIds}
           removeFavPhotoIds={removeFavPhotoIds}
+          fetchPhotosByTopic={fetchPhotosByTopic}
         />
       </div>
     </FavouritesProvider>
