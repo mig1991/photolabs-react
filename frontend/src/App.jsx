@@ -1,8 +1,7 @@
-// components/App.jsx
 import React from 'react';
 import { FavouritesProvider } from './context/FavouritesContext';
 import HomeRoute from './routes/HomeRoute';
-import useApplicationData from './hooks/useApplicationData';
+import useApplicationData from 'hooks/useApplicationData';
 import './App.scss';
 
 function App() {
@@ -10,9 +9,12 @@ function App() {
     state,
     displayModal,
     selectedPhoto,
-    openModal,
-    closeModal,
+    updateToFavPhotoIds,
+    removeFavPhotoIds,
+    selectPhoto,
+    closePhotoDetailsModal,
   } = useApplicationData();
+
 
   return (
     <FavouritesProvider>
@@ -20,10 +22,12 @@ function App() {
         <HomeRoute
           photos={state.photos}
           topics={state.topics}
-          openModal={openModal}
-          closeModal={closeModal}
-          displayModal={displayModal}
-          selectedPhoto={selectedPhoto}
+          openModal={selectPhoto}
+          closeModal={closePhotoDetailsModal}
+          displayModal={state.displayModal}
+          selectedPhoto={state.selectedPhoto}
+          updateToFavPhotoIds={updateToFavPhotoIds}
+          removeFavPhotoIds={removeFavPhotoIds}
         />
       </div>
     </FavouritesProvider>
@@ -31,3 +35,4 @@ function App() {
 }
 
 export default App;
+

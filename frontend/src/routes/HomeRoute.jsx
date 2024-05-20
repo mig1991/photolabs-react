@@ -8,11 +8,12 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = ({ photos, topics, openModal, closeModal, displayModal, selectedPhoto }) => {
   const { favourites, toggleFavourite } = useFavourites();
 
+
   return (
     <div className="home-route">
       <TopNavigationBar topics={topics} />
       <PhotoList photos={photos} onPhotoClick={openModal} favourites={favourites} toggleFavourite={toggleFavourite} />
-      {displayModal && (
+      {displayModal && selectedPhoto && (
         <PhotoDetailsModal
           onClose={closeModal}
           photo={selectedPhoto}
