@@ -1,6 +1,4 @@
-import { useReducer } from 'react';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
+import { useReducer, useEffect } from 'react';
 
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -34,7 +32,6 @@ function reducer(state, action) {
         topics: action.payload.topics,
       };
     case ACTIONS.SELECT_PHOTO:
-
       return {
         ...state,
         selectedPhoto: action.payload.photo,
@@ -54,13 +51,32 @@ function reducer(state, action) {
 const initialState = {
   favPhotoIds: [],
   selectedPhoto: null,
-  topics: topics,
-  photos: photos,
+  topics: [],
+  photos: [],
   displayModal: false,
 };
 
 function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    fetch("/api/photos")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error, status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Fetched data:", data);
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { photos: data } });
+        console.log("State after dispatch:", state);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
 
 
 
@@ -74,7 +90,6 @@ function useApplicationData() {
   };
 
   const selectPhoto = (photo) => {
-
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: { photo } });
   };
 
