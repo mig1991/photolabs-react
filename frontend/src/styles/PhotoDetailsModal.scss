@@ -31,11 +31,18 @@
 }
 
 .photo-details-modal__content {
-  padding: 10px 40px; /* Increase left and right padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; /* Center the content horizontally */
 }
+
+
 
 .photo-details-modal__image-container {
   position: relative; // Ensure the container is the reference for absolute positioning
+  width: auto;
+  height: auto;
 }
 
 .photo-details-modal__image {
@@ -44,7 +51,7 @@
   max-height: 50vh;
   border-radius: 8px;
   object-fit: contain;
-  margin-bottom: 16px; /* Add some space below the image for additional content */
+  margin-bottom: 16px; // Add some space below the image for additional content
 }
 
 .photo-details-modal__top-bar {

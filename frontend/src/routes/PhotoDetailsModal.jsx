@@ -5,18 +5,9 @@ import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
 
 const PhotoDetailsModal = ({ onClose, photo, favourites, toggleFavourite }) => {
-  console.log('Props received in PhotoDetailsModal:', { photo });
-
   if (!photo) return null;
 
   const similarPhotos = Object.values(photo.similar_photos || {});
-
-  const handlePhotoClick = (photo) => {
-    console.log('Clicked photo:', photo);
-    // Implement functionality to handle photo click, e.g., updating the modal with the new photo
-  };
-
-  console.log('Similar photos array:', similarPhotos);
 
   return (
     <div className="photo-details-modal">
@@ -25,8 +16,8 @@ const PhotoDetailsModal = ({ onClose, photo, favourites, toggleFavourite }) => {
       </button>
       <div className="photo-details-modal__content">
         <div className="photo-details-modal__image-container">
-          <PhotoFavButton photo={photo} favourites={favourites} toggleFavourite={toggleFavourite} />
           <img src={photo.urls.regular} alt={photo.title} className="photo-details-modal__image" />
+          <PhotoFavButton photo={photo} favourites={favourites} toggleFavourite={toggleFavourite} />
         </div>
         <div className="photo-details-modal__header">
           {photo.title}
@@ -45,7 +36,7 @@ const PhotoDetailsModal = ({ onClose, photo, favourites, toggleFavourite }) => {
         <h2 className="photo-details-modal__similar-header">Similar Photos</h2>
         <div className="photo-details-modal__additional-content">
           {similarPhotos.length > 0 ? (
-            <PhotoList photos={similarPhotos} onPhotoClick={handlePhotoClick} favourites={favourites} toggleFavourite={toggleFavourite} />
+            <PhotoList photos={similarPhotos} onPhotoClick={() => {}} favourites={favourites} toggleFavourite={toggleFavourite} />
           ) : (
             <p>No similar photos available</p>
           )}
