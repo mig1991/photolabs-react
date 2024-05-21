@@ -46,12 +46,10 @@
 }
 
 .photo-details-modal__image {
-  width: 100%;
+  display: block;
+  max-width: 100%;
   height: auto;
-  max-height: 50vh;
-  border-radius: 8px;
-  object-fit: contain;
-  margin-bottom: 16px; // Add some space below the image for additional content
+  position: relative; /* Ensure the image itself does not affect the position of the notification */
 }
 
 .photo-details-modal__top-bar {
