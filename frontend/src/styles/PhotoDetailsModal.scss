@@ -9,7 +9,7 @@
   width: 55%;
   overflow-y: scroll;
   border-radius: 12px;
-  z-index: 1000; // Ensure the modal has a high z-index value
+  z-index: 1000; 
 }
 
 .photo-details-modal__close-button {
@@ -40,18 +40,16 @@
 
 
 .photo-details-modal__image-container {
-  position: relative; // Ensure the container is the reference for absolute positioning
+  position: relative; 
   width: auto;
   height: auto;
 }
 
 .photo-details-modal__image {
-  width: 100%;
+  display: block;
+  max-width: 100%;
   height: auto;
-  max-height: 50vh;
-  border-radius: 8px;
-  object-fit: contain;
-  margin-bottom: 16px; // Add some space below the image for additional content
+  position: relative; /* Ensure the image itself does not affect the position of the notification */
 }
 
 .photo-details-modal__top-bar {
