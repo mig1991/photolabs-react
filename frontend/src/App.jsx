@@ -14,6 +14,7 @@ function App() {
     selectPhoto,
     closePhotoDetailsModal,
     fetchPhotosByTopic,
+    fetchPhotosByQuery, 
   } = useApplicationData();
 
 
@@ -30,6 +31,7 @@ function App() {
           updateToFavPhotoIds={updateToFavPhotoIds}
           removeFavPhotoIds={removeFavPhotoIds}
           fetchPhotosByTopic={fetchPhotosByTopic}
+          fetchPhotosByQuery={fetchPhotosByQuery}
         />
       </div>
     </FavouritesProvider>

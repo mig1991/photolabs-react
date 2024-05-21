@@ -5,18 +5,27 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import { useFavourites } from '../context/FavouritesContext';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photos, topics, openModal, closeModal, displayModal, selectedPhoto, fetchPhotosByTopic }) => {
+const HomeRoute = ({ photos, topics, openModal, closeModal, displayModal, selectedPhoto, fetchPhotosByTopic, fetchPhotosByQuery }) => {
   const { favourites, toggleFavourite } = useFavourites();
 
   useEffect(() => {
-    console.log("HomeRoute photos:", photos); // Log photos prop to inspect its content
-    console.log("HomeRoute topics:", topics); // Log topics prop to inspect its content
+    console.log("HomeRoute photos:", photos); 
+    console.log("HomeRoute topics:", topics); 
   }, [photos, topics]);
 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} fetchPhotosByTopic={fetchPhotosByTopic} />
-      <PhotoList photos={photos} onPhotoClick={openModal} favourites={favourites} toggleFavourite={toggleFavourite} />
+      <TopNavigationBar 
+        topics={topics} 
+        fetchPhotosByTopic={fetchPhotosByTopic} 
+        fetchPhotosByQuery={fetchPhotosByQuery} 
+      />
+      <PhotoList 
+        photos={photos} 
+        onPhotoClick={openModal} 
+        favourites={favourites} 
+        toggleFavourite={toggleFavourite} 
+      />
       {displayModal && selectedPhoto && (
         <PhotoDetailsModal
           onClose={closeModal}
@@ -28,5 +37,4 @@ const HomeRoute = ({ photos, topics, openModal, closeModal, displayModal, select
     </div>
   );
 };
-
 export default HomeRoute;

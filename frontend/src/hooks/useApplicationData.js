@@ -105,7 +105,23 @@ function useApplicationData() {
       });
   };
 
-
+  const fetchPhotosByQuery = (query) => {
+    console.log(`Fetching photos for query: ${query}`);
+    fetch(`/api/photos/search?search=${query}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error, status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Search results:', data);
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { photos: data } });
+      })
+      .catch((error) => {
+        console.error(`Error fetching photos for query "${query}":`, error);
+      });
+  };
 
   const updateToFavPhotoIds = (id) => {
     dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id } });
@@ -130,6 +146,7 @@ function useApplicationData() {
     removeFavPhotoIds,
     selectPhoto,
     closePhotoDetailsModal,
+    fetchPhotosByQuery
   };
 }
 
