@@ -20,12 +20,46 @@
 }
 .nav-topics {
   display: flex;
+  align-items: center;
   gap: 16px;
-  margin-left: auto; /* Add this to push the topics to the right */
+  // margin-left: auto; /* Add this to push the topics to the right */
 }
 
-.favourites-notification {
+
+.nav-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-right {
   display: flex;
   align-items: center;
-  margin-left: 16px; /* Add this to ensure some space between the topics and the notification icon */
+}
+
+.nav-right .nav-search {
+  margin-right: 0px; /* Adjust this value as needed */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.search-bar input {
+  padding: 5px 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
