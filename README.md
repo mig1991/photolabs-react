@@ -61,7 +61,7 @@ Key files and their roles in the project include:
 
 To get PhotoLabs up and running on your local machine, follow these steps:
 
-1. **Clone the repository**: `git clone https://github.com/your-username/photolabs.git`
+**Clone the repository**: `git clone https://github.com/your-username/photolabs.git`
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
 
@@ -80,7 +80,8 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
-5. **Visit the application**: Open your browser and navigate to `http://localhost:3000`
+
+**Visit the application**: Open your browser and navigate to `http://localhost:3000`
 
 ## Screenshots
 
