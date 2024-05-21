@@ -2,7 +2,7 @@ import React from 'react';
 import NavFavIcon from './NavFavIcon';
 import TopicList from './TopicList';
 import '../styles/TopNavigationBar.scss';
-import SearchBar from './ SearchBar';
+import SearchBar from './SearchBar';
 
 const TopNavigationBar = ({ topics, fetchPhotosByTopic, fetchPhotosByQuery }) => {
   const handleSearch = (query) => {
